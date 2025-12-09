@@ -1,0 +1,15 @@
+{
+  "name": "hono-next-quiz-root",
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "open-cli": "^7.1.0",
+    "wait-on": "^7.0.1"
+  },
+  "scripts": {
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "open-quiz": "npx wait-on http://localhost:3000 && npx open-cli http://localhost:3000/quiz",
+    "dev": "concurrently \"npm:dev:backend\" \"npm:dev:frontend\" \"npm:open-quiz\" --names \"BACKEND,FRONTEND,OPENER\" --prefix-colors \"bgBlue.bold,bgMagenta.bold,bgGreen.bold\""
+  }
+}
